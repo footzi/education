@@ -1,0 +1,53 @@
+img {
+	width: 100%;
+}
+.test {
+	background-image:url(../img/03.jpg);
+	width: 100%;
+	height: 500px; 
+	background-size:cover; 
+}
+.loader {
+	height: 50px;
+}
+.loader-bar {
+	color:white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 20px;
+	height: 100%;
+	background-color:blue; 
+}
+.images {
+	display: none;
+}
+
+.slider {
+	margin-top: 20px;
+}
+.slider-display {
+	position: relative;
+	width: 400px;
+	height: 200px;
+	overflow: hidden;
+}
+.slider-list {
+	position: absolute;
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+.slider-item  {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top:-100%;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+.slider-item.active {
+	top: 0%;
+}
