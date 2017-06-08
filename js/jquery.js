@@ -49,5 +49,32 @@ $(window).ready(function(){
 	})	
 })
 
+//слайдер
+var counter = 1;
+$(".slider-controls-next").on("click", function(e){
+	e.preventDefault();
 
+	var slider = $(".slider")
+	var item = $(".slider-item")
+	var active = $(".slider-item.active")
 
+	if (counter>=item.length) {
+		counter = 0;
+	}
+
+	var reqItem=item.eq(counter)
+
+	active.animate({
+		"top":"100%"
+	},300)
+
+	reqItem.animate({
+		"top":"0"
+	},300, function(){
+		active.removeClass("active").css("top","-100%");
+		$(this).addClass("active");
+	})
+
+	counter++
+	
+})
