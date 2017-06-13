@@ -61,3 +61,20 @@ img {
 	bottom: 0;
 	margin: auto; 
 }
+
+.c1, .c2 {
+	height: 50px;
+	width: 50px;
+}
+.c1 {
+	background-color: yellow;
+}
+.c2 {
+	background-color: red;
+}
+.c1-show, .c2-show, .all-show  {
+	display: none;
+}
+.text span {
+	margin-right: 10px;
+}
