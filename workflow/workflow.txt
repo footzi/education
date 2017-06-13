@@ -1,0 +1,70 @@
+структура:
+
+public
+	js
+		main.js
+	css
+		main.css
+	index.html
+source
+	js
+		slider.js
+		parallax.js
+	scss
+		common
+			first-page.sccs
+			secont-page.sccs
+			button.sccs
+		main.sccs(экспортирует все файлы из сommon)
+	templates
+		pages
+			first-page.pug
+			second-page.pug
+		base.pug
+
+GULP
+
+var gulp = require("gulp");
+
+gulp.task("mytask", function() {
+    console.log("fefefef")
+}) - простой таск
+
+gulp.task("mytask", function() {
+    return gulp.src("source-files") - выбор исходного файла
+    .pipe(plugin()) - использование какого-либо плагина
+    .pipe(gulp.dest("folder") - вывод
+})
+
+gulp.task("watch", function(){
+    gulp.watch("templates/*", ["pug"])
+})
+
+ gulp.src("!public/main.scss") - исключение файла
+gulp.src([]) - выбор нескольких файлов
+ gulp.src("public/main*.+(scss|sass)") - выборка scss и sass
+
+gulp.task("watch",['browser-sync'], fucntion().... -выполнение таска до запуска watch
+
+
+не забыть про browser sync
+var browserSync = require('browser-sync');
+
+gulp.task('browserSync', function() {
+    browserSync({
+        server: {
+            baseDir:'../public'
+        }
+    })
+});
+
+    .pipe(browserSync.reload({ -добавить в таск(sass)
+        stream:true
+    }))
+
+gulp.task('watch', ['browserSync','sass'], function(){
+    gulp.watch('templates/*', ['pug'])
+    gulp.watch('styles/**/*.scss', ['sass'])
+    gulp.watch('../public/*.html', browserSync.reload) - перезагружает браузер при измении
+    gulp.watch('../public/js/*.js', browserSync.reload)
+});
