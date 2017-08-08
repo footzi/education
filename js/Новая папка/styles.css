@@ -1,7 +1,11 @@
-a {
-	color: blue;
-	text-decoration: underline;
+label {
+    margin-right: 10px;
 }
-.arguments {
-	/*display: none;*/
+
+.hide {
+    display: none;
+}
+
+.arrays input {
+    margin-bottom: 10px;
 }
