@@ -98,22 +98,18 @@ function rec3() {
 }
 
 //работа с массивами
-
-function arr() {
-    var val1 = document.querySelector(".arrays #input1").value,
-        val2 = document.querySelector(".arrays #input2").value,
-        val3 = document.querySelector(".arrays #input3").value,
-        result = document.querySelector(".arrays #output1");
+var buttons=document.getElementsByClassName("push"),
+	result = document.querySelector(".arrays #output1"),
     arr = [];
-
-
-    result.innerHTML = array;
+function psh () {
+	var val=this.previousElementSibling.value;
+	arr.push(val);
+	result.innerHTML = arr;
+}
+for(var i=0; i<buttons.length; i++) {
+	buttons[i].addEventListener("click",psh);
 }
 
-function push() {
-    var ths = this.querySelector();
-    console.log(ths)
-        // var buttons = document.querySelectorAll(".arrays button");
-        // var value = buttons.previousElementSibling;
-        // console.log(value);
-}
+
+
+

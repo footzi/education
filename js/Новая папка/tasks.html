@@ -11,12 +11,12 @@
         <ul>
             <li><a href="#" data="arguments">Аргументы</a></li>
             <li><a href="#" data="rec">Рекурсия</a></li>
+            <li><a href="#" data="arrays">Массивы</a></li>
         </ul>
     </nav>
     <div class="functions">
-        <h2>Функции</h2>
         <div id="arguments" class="hide">
-            <h3>Работа с арументами</h3>
+            <h2>Работа с арументами</h2>
             <p>Ввод аргументов</p>
             <label for="input1">Аргумент 1</label><input id="input1" type="number">
             <label for="input2">Аргумент 2</label><input id="input2" type="number">
@@ -26,7 +26,7 @@
             <p>Cумма аргументы:<span id="output2"></span></p>
         </div>
         <div id="rec" class="hide">
-            <h3>Рекурсия</h3>
+            <h2>Рекурсия</h2>
             <div>
                 <h4>Возведение в степень</h4>
                 <label for="input1">Число</label><input id="input1" type="number">
@@ -48,23 +48,24 @@
             </div>
         </div>
     </div>
-    <div class="arrays">
+    <div class="arrays hide" id="arrays">
         <h2>Массивы</h2>
         <div>
             <p>Добавить значение в массив</p>
             <div>
                 <label for="input1">Значение 1</label><input id="input1" type="number">
-                <button onclick="push()">Добавить</button>
+                <button id="test" class="push">Добавить</button>
             </div>
             <div>
                 <label for="input2">Значение 2</label><input id="input2" type="number">
-                <button>Добавить</button>
+                <button class="push">Добавить</button>
             </div>
             <div>
                 <label for="input3">Значение 3</label><input id="input3" type="number">
-                <button>Добавить</button>
+                <button class="push">Добавить</button>
             </div>
-            <button onclick="arr();">Пуск</button>
+            <button id="delF">Удалить первый</button>
+            <button id="delL">Удалить поседний</button>
             <p>Результат: <span id="output1"></span></p>
         </div>
 
