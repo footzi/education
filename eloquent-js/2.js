@@ -70,4 +70,78 @@ function findSequence(target) {
     }
     return find(1, "1");
 }
-console.log(findSequence(28));
+//console.log(findSequence(28));
+
+
+//пример с фермой. 1 вариант
+function farm(pig, cow) {
+    var pigString=String(pig);
+    while(pigString.length<5) {
+        pigString=0+pigString;
+    };
+    //console.log(pigString+" свиней");
+    var cowString=String(cow);
+    while(cowString.length<5) {
+        cowString=0+cowString;
+    };
+    //console.log(cowString+" коров");
+
+}
+farm (278,35);
+
+//Второй вариант
+function addZero(number) {
+    var numberString=String(number);
+    while(numberString.length<5) {
+        numberString=0+numberString;
+    }
+    return numberString;
+
+}
+function farmInventory(pig, cow, chiken) {
+    //console.log(addZero(pig)+" хрюш");
+    //console.log(addZero(cow)+" бурёнок");
+    //console.log(addZero(chiken)+" курочек");
+}
+farmInventory(180,78,555);
+
+
+//Задача 1.Найти миниум.
+function min(a,b) {
+    if (a<b) {
+        return a;
+    } else {
+        return b;
+    }
+}
+//console.log(min(1883,564));
+
+//Задание 2.
+function rec(n) {
+    if (n==0) {
+        return true
+    } 
+    else if (n==1) {
+        return false
+    }
+    else {
+        return n=n-2;
+    }
+
+}
+console.log(rec());
+//Задание 3.Расчет количества определенной буквы в строке
+function countChar (data, symbol) {
+    var result=0;
+    for(var n=0; n<data.length;n++) {    
+        var a=data.charAt(n);
+        if(a==symbol) {
+            result++
+        }
+    }
+    return result;
+}
+//console.log(countChar("VlVVVkjhgfgu ViuyyyyV", "V"));
+
+
+//
