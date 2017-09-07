@@ -57,6 +57,7 @@ function getPowerRec(number, power) {
 }
 //console.log(getPowerRec(3, 3));
 
+
 //поиск последовательности сложений и умножений. (умножаем на 5, прибавляем 3)
 function findSequence(target) {
     function find(start, history) {
@@ -75,40 +76,40 @@ function findSequence(target) {
 
 //пример с фермой. 1 вариант
 function farm(pig, cow) {
-    var pigString=String(pig);
-    while(pigString.length<5) {
-        pigString=0+pigString;
+    var pigString = String(pig);
+    while (pigString.length < 5) {
+        pigString = 0 + pigString;
     };
     //console.log(pigString+" свиней");
-    var cowString=String(cow);
-    while(cowString.length<5) {
-        cowString=0+cowString;
+    var cowString = String(cow);
+    while (cowString.length < 5) {
+        cowString = 0 + cowString;
     };
     //console.log(cowString+" коров");
 
 }
-farm (278,35);
+farm(278, 35);
 
 //Второй вариант
 function addZero(number) {
-    var numberString=String(number);
-    while(numberString.length<5) {
-        numberString=0+numberString;
+    var numberString = String(number);
+    while (numberString.length < 5) {
+        numberString = 0 + numberString;
     }
     return numberString;
-
 }
+
 function farmInventory(pig, cow, chiken) {
     //console.log(addZero(pig)+" хрюш");
     //console.log(addZero(cow)+" бурёнок");
     //console.log(addZero(chiken)+" курочек");
 }
-farmInventory(180,78,555);
+farmInventory(180, 78, 555);
 
 
 //Задача 1.Найти миниум.
-function min(a,b) {
-    if (a<b) {
+function min(a, b) {
+    if (a < b) {
         return a;
     } else {
         return b;
@@ -116,26 +117,25 @@ function min(a,b) {
 }
 //console.log(min(1883,564));
 
-//Задание 2.
-function rec(n) {
-    if (n==0) {
-        return true
-    } 
-    else if (n==1) {
-        return false
-    }
-    else {
-        return n=n-2;
-    }
 
+//Задание 2. Определение четности/нечетности числа с помощью рекрусии
+function isEven(n) {
+    if (n == 0) {
+        return true
+    } else if (n == 1) {
+        return false
+    } else {
+        return isEven(n - 2);
+    }
 }
-console.log(rec());
-//Задание 3.Расчет количества определенной буквы в строке
-function countChar (data, symbol) {
-    var result=0;
-    for(var n=0; n<data.length;n++) {    
-        var a=data.charAt(n);
-        if(a==symbol) {
+//console.log(isEven(1023));
+
+
+//Задание 3. Расчет количества определенной буквы в строке
+function countChar(data, symbol) {
+    var result = 0;
+    for (var n = 0; n < data.length; n++) {
+        if (data.charAt(n) == symbol) {
             result++
         }
     }
@@ -143,5 +143,13 @@ function countChar (data, symbol) {
 }
 //console.log(countChar("VlVVVkjhgfgu ViuyyyyV", "V"));
 
-
 //
+function sum(n) {
+    var result
+    if (n == 1) {
+        return n
+    } else {
+        return sum(n - 1)
+    }
+}
+console.log(sum(1));
