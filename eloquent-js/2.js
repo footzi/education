@@ -108,6 +108,7 @@ farmInventory(180, 78, 555);
 
 
 //Задача 1.Найти миниум.
+//(Самостоятельнр на 100%.)
 function min(a, b) {
     if (a < b) {
         return a;
@@ -119,6 +120,7 @@ function min(a, b) {
 
 
 //Задание 2. Определение четности/нечетности числа с помощью рекрусии
+//(Самостоятельно на 60%.)
 function isEven(n) {
     if (n == 0) {
         return true
@@ -132,6 +134,7 @@ function isEven(n) {
 
 
 //Задание 3. Расчет количества определенной буквы в строке
+//(Самостоятельно на 100%)
 function countChar(data, symbol) {
     var result = 0;
     for (var n = 0; n < data.length; n++) {
@@ -143,7 +146,8 @@ function countChar(data, symbol) {
 }
 //console.log(countChar("VlVVVkjhgfgu ViuyyyyV", "V"));
 
-//
+
+//не доделано
 function sum(n) {
     var result
     if (n == 1) {

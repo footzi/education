@@ -5,7 +5,8 @@ for (var counter = 0; counter < 10; counter++) {
     //console.log(result);
 }
 
-//задача 1. Вывод решеток.
+//задача 1. Вывод решеток
+//(Самостоятельнр на 100%).
 var sharp = "#";
 for (var counter = 0; counter < 7; counter++) {
     sharp = sharp + "#";
@@ -13,6 +14,7 @@ for (var counter = 0; counter < 7; counter++) {
 }
 
 //задача 2. FizzBuzz
+//(Самостоятельнр на 100%).
 for (var counter = 1; counter <= 100; counter++) {
     var number = "";
     if (counter % 3 == 0) {
@@ -38,7 +40,8 @@ for (var n=0; n<8; n++) {
 }
 //console.log(board);
 
-//задача 3. Шахматная доска (2 решение)
+//задача 3. Шахматная доска (собственнное решение)
+//(Самостоятельнр на 100%)
 for (i=0; i<4; i++) {
     var line1="";
     var line2="";

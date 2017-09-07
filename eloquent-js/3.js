@@ -27,12 +27,48 @@ function getPoint(radius) {
 
 
 //Упражнение 1. Вернуть все числа между заданными в массив и ввывести их сумму.
-function range(start, end) {
-    var result = [];
-    for (i = 0; i < arguments.length; i++) {
-        result.push(start++)
-
+//(самостоятельно на 90%.Не мог понять как работать с отрицательным шагом.)
+const range=(start, end, step) => {
+    if (step==undefined) {
+        step=1;
     }
-    console.log(result)
+    let result = [];
+    if(step>0) {
+        for (var i = start; i <= end; i=i+step) {
+            result.push(i);
+        }
+    } else {
+        for (var i = start; i >= end; i=i+step) {
+            result.push(i);
+        }
+    }
+    return result;
 }
-range(2, 10)
+const sum = (result) => {
+    let total=0;
+    for (var i=0; i<result.length; i++) {
+        total=total+result[i];
+    }
+    return total;
+};
+//console.log(range(5,2,-1));
+//console.log(sum(range(5,2,-1)));
+
+//
+const reverseArray = (data)=>{
+    let newArray=[];
+    for(i=0; i<data.length;i++) {
+        newArray.unshift(data[i]);
+    }
+    return newArray;
+}
+//console.log(reverseArray(["A","B","C"]))
+
+
+const reverseArrayInPlace = (array)=>{
+    array=['jhhg']
+    return array;
+}
+let array = ["X", "Y", "Z"];
+reverseArrayInPlace(array);
+console.log(array);
