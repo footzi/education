@@ -26,49 +26,72 @@ function getPoint(radius) {
 //console.log(getPoint(125))
 
 
-//Упражнение 1. Вернуть все числа между заданными в массив и ввывести их сумму.
+//Задание 1. Вернуть все числа между заданными в массив и ввывести их сумму.
 //(самостоятельно на 90%.Не мог понять как работать с отрицательным шагом.)
-const range=(start, end, step) => {
-    if (step==undefined) {
-        step=1;
+const range = (start, end, step) => {
+    if (step == undefined) {
+        step = 1;
     }
     let result = [];
-    if(step>0) {
-        for (var i = start; i <= end; i=i+step) {
+    if (step > 0) {
+        for (var i = start; i <= end; i = i + step) {
             result.push(i);
         }
     } else {
-        for (var i = start; i >= end; i=i+step) {
+        for (var i = start; i >= end; i = i + step) {
             result.push(i);
         }
     }
     return result;
 }
 const sum = (result) => {
-    let total=0;
-    for (var i=0; i<result.length; i++) {
-        total=total+result[i];
+    let total = 0;
+    for (var i = 0; i < result.length; i++) {
+        total = total + result[i];
     }
     return total;
 };
 //console.log(range(5,2,-1));
 //console.log(sum(range(5,2,-1)));
 
-//
-const reverseArray = (data)=>{
-    let newArray=[];
-    for(i=0; i<data.length;i++) {
-        newArray.unshift(data[i]);
+//Задание 2.1 Вернуть значение масива в обратном порядке, используя новый массив.
+//(Самостоятельно на 100%)
+const reverseArray = (data) => {
+        let newArray = [];
+        for (i = 0; i < data.length; i++) {
+            newArray.unshift(data[i]);
+        }
+        return newArray;
     }
-    return newArray;
-}
-//console.log(reverseArray(["A","B","C"]))
+    //console.log(reverseArray(["A","B","C"]))
 
+var array = [1, 2, 3, 4, 5];
 
-const reverseArrayInPlace = (array)=>{
-    array=['jhhg']
+//Задание 2.2 Вернуть значение масива в обратном порядке, используя тот же массив.
+//(Самостоятельно на 0%)
+function reverseArrayInPlace(array) {
+    for (var i = 0; i < Math.floor(array.length / 2); i++) {
+        var old = array[i];
+        array[i] = array[array.length - 1 - i];
+        array[array.length - 1 - i] = old;
+    }
     return array;
 }
-let array = ["X", "Y", "Z"];
 reverseArrayInPlace(array);
-console.log(array);
+//console.log(array);
+
+var test = [2, 3, 4, 5];
+
+//Задание 3.1. Построить список используя в качестве аргумента массив.
+//cамостоятельно на 50%;
+const arrayToList = (array) => {
+    let list = null;
+    console.log("len" + array.length)
+    for (var i = array.length - 1; i >= 0; i--) { //обход массива в обратную сторону
+        console.log(array[i]);
+        list = { value: array[i], rest: list };
+    }
+    return list
+
+}
+console.log(arrayToList([10, 20]))
