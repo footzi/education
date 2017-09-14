@@ -59,7 +59,7 @@ const sum = (result) => {
 const reverseArray = (data) => {
         let newArray = [];
         for (i = 0; i < data.length; i++) {
-            newArray.unshift(data[i]);
+            newAaaaarray.unshift(data[i]);
         }
         return newArray;
     }
@@ -80,18 +80,60 @@ function reverseArrayInPlace(array) {
 reverseArrayInPlace(array);
 //console.log(array);
 
-var test = [2, 3, 4, 5];
-
 //Задание 3.1. Построить список используя в качестве аргумента массив.
 //cамостоятельно на 50%;
-const arrayToList = (array) => {
-    let list = null;
-    console.log("len" + array.length)
-    for (var i = array.length - 1; i >= 0; i--) { //обход массива в обратную сторону
-        console.log(array[i]);
-        list = { value: array[i], rest: list };
+const arrayToList = (array)=>{
+    let list=null;
+    for (i=array.length-1;i>=0;i--) {
+        list={name:array[i], link:list}
     }
-    return list
-
+    return list;
 }
-console.log(arrayToList([10, 20]))
+//console.log(arrayToList(["Vlad", "Anna"]));
+
+//Задание 3.2 Вернуть массив из списка предыдущей функции
+//самостоятельно на 20%
+const listToArray = (list)=>{
+    let arr=[];
+    for(i=list;i;i=i.link) {
+        arr.push(i.name)
+    }
+    return arr;
+}
+//console.log(listToArray(arrayToList(["Vlad", "Anna"])));
+
+//Задание 3.3 Добавить полученный элемент к существуюшему списку
+//самостоятельно на 100%
+const prepend = (value,list)=>{
+    let result={};
+    return result={value:value, rest:list}
+}
+//console.log(prepend(10,prepend(20,null)));
+
+//Задание 3.4 Функция принимает список и число, и должна вернуть Элемент под заданным номером
+//Не доделано
+const nth=(list,n)=>{
+    return list.name
+}
+//console.log(nth(arrayToList([10,20,30]),1));
+
+//Задание 4. Написать функцию котораяя сравнивает два значения и выдает true если Эти два значения одинаковы,
+//либо если Эти значния объекты их значения свойств одинаковы.
+
+const obj={name:"Vlad",female:"Manakov"};
+const deepEqual=(a,b)=>{
+    if(a===b) {
+        return true
+    } 
+    if((typeof a=="object")||(typeof b=="object")) {
+        return false
+    }
+    // let propsInA=0;
+    // for(var i in a) {
+    //     propsInA=propsInA+1;
+    // }
+    // console.log(propsInA);
+}
+//console.log(deepEqual(obj,obj));
+//console.log(deepEqual(obj,{name:"Manakov",female:"Vladislav"}));
+console.log(deepEqual(obj,{name:"Vlad",female:"Manakov"}));
