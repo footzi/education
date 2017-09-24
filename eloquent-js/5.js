@@ -51,36 +51,20 @@ admin.b=func
 user1.a();
 admin.b();
 
-const test=(str)=>{
-	let news="";
-	for(let i=0;i<str.length;i++) {
-		if(str[i]>"Z")
-			news=news+str[i].toUpperCase()
-		else {
-			news=news+str[i].toLowerCase()
-		}
-	}
-	return news
+// const happy=(str)=>{
 
-}
-//console.log(test("hEllO cAt"));
-//test("HellO") 
-//console.log("A">"Z")
-
-const happy=(str)=>{
-
-	let left=String(str).substring(0,3);
-	let right=String(str).substring(3,6);
-	let leftS=0;
-	let rightS=0;
-	for (let i=0; i<left.length; i++) {
-		leftS=leftS+Number(left[i]);
-	}
-	for (let i=0; i<right.length; i++) {
-		rightS=rightS+Number(right[i]);
-	}
-	if(leftS==rightS) {
-		return true
-	} else return false
-}
-console.log(happy("054702"));
+// 	let left=String(str).substring(0,3);
+// 	let right=String(str).substring(3,6);
+// 	let leftS=0;
+// 	let rightS=0;
+// 	for (let i=0; i<left.length; i++) {
+// 		leftS=leftS+Number(left[i]);
+// 	}
+// 	for (let i=0; i<right.length; i++) {
+// 		rightS=rightS+Number(right[i]);
+// 	}
+// 	if(leftS==rightS) {
+// 		return true
+// 	} else return false
+// }
+//console.log(happy("054702"));
