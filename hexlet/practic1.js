@@ -48,7 +48,7 @@ const isPerfect=(num)=>{
 //console.log(isPerfect(496));
 
 
-//Функция возвращает строку задом на перед
+//Функция возвращает строку задом наперед
 const reverce=(str)=>{
 	let result="";
 	for(let i=0;i<str.length;i++) {
@@ -78,15 +78,23 @@ const testik=(str)=>{
 //console.log(testik("hello"))
 
 
-const sumSquare=(n)=>{
-	let a=0;
-	let s=0;
-	const ab=(n)=>{
-		for(let i=1; i<=n; i++){
-			s=s+i*i
+//функция которая принимает аргумент n и возвращает разницу между квадратом суммы и суммой квадратов первых n натуральных чисел.
+
+const sumSquareDifference=(n)=>{
+	const sumSquare=(n)=>{
+		let resultSumSquare=0;
+		for	(let i=0; i<=n; i++) {
+			resultSumSquare=resultSumSquare+i*i
 		}
-		return s
+		return resultSumSquare;
 	}
-	return ab(n);
+	const squareSum=(n)=>{
+		let resultSquareSum=0;
+		for (let i=0; i<=n; i++) {
+			resultSquareSum=(resultSquareSum+i)
+		}
+		return Math.pow(resultSquareSum,2)
+	}
+	return squareSum(n)-sumSquare(n);
 }
-console.log(sumSquare(10))
+console.log(sumSquareDifference(10))
