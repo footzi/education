@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		div {margin-bottom: 10px;}
+	</style>
+</head>
+<body>
+	<div>
+		<label id="firstname">Имя</label><input id="in-firstname" type="text" name="fistname">
+	</div>
+	<div>
+		<label id="secondname">Фамилия</label><input id="in-secondname" type="text" name="secondname">
+	</div>
+	<div>
+		<label id="age">Возраст</label><input id="in-age" type="number" name="age">
+	</div>
+	<button id="send">Отправить данные</button>
+	<button id="get">Получить данные</button>
+	<p>Таблица:</p>
+	<table>
+	</table>
+</body>
+<script src="jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+	$("#get").on("click",function() {
+		let value=$("#input").val();
+		$.ajax({
+			type:"POST",
+			url:"/test",
+			//data:value,
+			success:function(data) {
+				let arr=JSON.parse(data);
+				for (let i=0; i<arr.length;i++){
+					let tr = document.createElement("tr");
+					document.querySelector("table").appendChild(tr);
+					tr.id="line-"+i;
+					for (let prop in arr[i]) {
+						let td=document.createElement("td");
+						td.innerHTML=arr[i][prop];
+						document.getElementById("line-"+i).appendChild(td);
+						}
+					}
+				}
+		})
+	});
+
+	$("#send").on("click", function(){
+		let sendObj={};
+		sendObj.firstname=document.getElementById("in-firstname").value;
+		sendObj.secondname=document.getElementById("in-secondname").value;
+		sendObj.age=document.getElementById("in-age").value;
+		console.log(JSON.stringify(sendObj));
+
+		$.ajax({
+			type:"POST",
+			url:"/send",
+			data:JSON.stringify(sendObj)
+		})
+	})	
+	
+	
+</script>
+</html>

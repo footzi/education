@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!-- <input id="input" type="" name="">
+	<button id="send">Получить данные</button>
+	<table>
+		<tr>
+			<td>текст 1</td>
+			<td>текст 2</td>
+		</tr>
+		<tr>
+			<td>текст 3</td>
+			<td>текст 4</td>
+			<td>текст 5</td>
+		</tr>
+		<!-- <tr id="test"> -->
+		<button id="get">get</button>
+		<table>
+
+		</table>
+</body>
+<!-- <script src="jquery.min.js" type="text/javascript"></script> -->
+<script type="text/javascript">
+let person=[
+	{
+		id:"1",firstname:"Vlad", secondname:"Manakov", age:"27"
+	},
+	{
+		id:"2",firstname:"Anna", secondname:"Agafonova", age:"22"
+	}
+];
+console.log(person);
+
+
+document.getElementById("get").addEventListener("click",function(e){
+	e.preventDefault();
+	for (let i=0; i<person.length;i++){
+		let tr = document.createElement("tr");
+		document.querySelector("table").appendChild(tr);
+		tr.id="ex"+i;
+		let btn=document.createElement("button");
+		btn.innerHTML="delete";
+
+		btn.setAttribute("del",i);
+		btn.id="delete";
+		document.getElementById("ex"+i).appendChild(btn);
+		
+		for (let prop in person[i]) {
+			let td=document.createElement("td");
+			td.innerHTML=person[i][prop];
+			
+			document.getElementById("ex"+i).appendChild(td);
+		}
+	};
+
+document.getElementById("delete").addEventListener("click",function(e){
+	e.preventDefault();
+	let btnId=this.getAttribute("del");
+	for (let i=0; i<person.length;i++) {
+		if(btnId==i) {
+			person.splice(person[i]);
+		}
+	}
+	console.log(person)
+})
+});
+</script>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button id="send">Получить данные</button>
+	<p id="output"></p>
+</body>
+<script type="text/javascript">
+	let btn=document.getElementById("send");
+	let output=document.getElementById("output");
+
+	function get() {
+		let xhr = new XMLHttpRequest();
+		xhr.open("POST","/person");
+		xhr.onload=function(){
+			console.log(this.responseText);
+		}
+		xhr.send()
+	}
+	btn.addEventListener("click",function(){
+		get();
+	})
+</script>
+</html>
