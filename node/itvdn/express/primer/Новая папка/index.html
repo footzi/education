@@ -53,7 +53,6 @@
 			type:"POST",
 			url:"/send",
 			data:JSON.stringify(sendObj)
-
 		});
 
 		$.ajax({
@@ -67,8 +66,7 @@
 
 function node(data)	{
 	$("table").empty();
-	let arr=data;
-	//let arr=JSON.parse(data);
+	let arr=JSON.parse(data);
 	for (let i=0; i<arr.length;i++){
 
 		//создание строк
@@ -93,9 +91,9 @@ function node(data)	{
 
 			}
 		};
+		
 
-
-		document.querySelector(".delete").onclick=function(){
+		$(".delete").on("click", function(){
 			let btnId=this.getAttribute("del");
 			for (let i=0; i<arr.length;i++){
 				if(btnId==i) {
@@ -116,7 +114,7 @@ function node(data)	{
 					node(data);
 				}
 			})
-		}
+		})
 }	
 
 	

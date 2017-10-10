@@ -3,35 +3,37 @@ let app = express();
 let path = require("path");
 let fs = require("fs");
 
-let people=[
-	{ firstname:"Vlad", secondname:"Manakov", age:"27" },
-	{ firstname:"Anna", secondname:"Agafonova"},
-	{ firstname:"Vlad", secondname:"Manakov", age:"27" }
-];
+let people=fs.readFileSync("data.json");
+people=JSON.parse(people);
+
 let log="log.txt"
-let dataToClient="";
+
 app.use("/", express.static(path.join(__dirname)))
 
 app.post("/test", function(req,res){
 	req.on("data", function(arr){
-		console.log(arr.toString());
+		people=JSON.parse(arr);
+		console.log(people);
+		fs.writeFile("data.json",JSON.stringify(people),function(err) {
+			if (err) throw err;
+			console.log("write data file");
+		})
 	})
-	// req.on("data",function(chunk){
-	// 	dataToClient=chunk.toString();
-	// 	res.write(dataToClient)
-	// });
-	// req.on("end",function(){
-	// 	res.end();
-	// })
-	res.send(JSON.stringify(people));; //конвертируем массив в jsonа а на клиенте конвертируем обратно
+	//res.send(JSON.stringify(people));; //конвертируем массив в jsonа а на клиенте конвертируем обратно
+	res.send(people);
 })
 
 app.post("/send", function(req,res){
 	req.on("data", function(chunk){
-		people.push(JSON.parse([chunk.toString()]));
+		people.push(JSON.parse(chunk));
+		fs.writeFile("data.json",JSON.stringify(people),function(err) {
+			if (err) throw err;
+			console.log("write data file");
+		})
 
-		let logger="address: " + req.ip + "/ " + "data: " + chunk;
-		fs.appendFile(log,logger,function(){
+		let logger="address: " + req.ip + " data: " + chunk + "\n";
+		fs.appendFile(log,logger,function(err){
+			if (err) throw err;
 			console.log("write log");
 		})
 	})
