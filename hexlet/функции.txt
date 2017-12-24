@@ -1,0 +1,24 @@
+console.log(2+3); //инструкция (любая строчка кода)
+
+способы записи функций:
+const identity = function(value) {
+    return value
+}
+
+function identity(value) {
+    return value
+}
+
+const identity = (value) => {
+    return value
+}
+
+const value = value => value
+
+const identity = (a, b) =>
+    return a + b
+identity(x, y)
+a и b - формальные параметры
+x и y - фактические
+
+все что ниже return никогда не выполняется
